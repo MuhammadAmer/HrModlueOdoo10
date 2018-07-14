@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <record id="hr_contract_view_form" model="ir.ui.view">
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+           <field name="type_id" position="after">
+               <field name="new_employee"/>
+              </field>
+                <field name="wage" position="before">
+                <group col="2" colspan="2">
+                <field name="basic"/>
+              <field name="variable"/>
+               <field name="socialpremium_nt"/>
+              <field name="total_gross"/>
+                </group>
+                     </field>
+                <field name="permit_no" position="after">
+               <field name="permit_expiry"/>
+              </field>
+            </field>
+        </record>
+
+        <record id="hr_contract_form_in_inherit" model="ir.ui.view">
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_payroll.hr_contract_form_inherit"/>
+            <field name="arch" type="xml">
+                <data>
+                    <group>
+
+                    </group>
+                    <xpath expr="//field[@name='struct_id']" position="after">
+                        <group col="2" colspan="2" name="right_column">
+                            <separator colspan="2" string="Allowance"/>
+                            <field name="living_allowance"/>
+                            <field name="transportation_allowance"/>
+                            <field name="mobile_allownance"/>
+                            <field name="representation_allowance"/>
+                            <field name="hazard_allowance"/>
+                            <field name="other_allowance"/>
+                        </group>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>

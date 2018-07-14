@@ -1,0 +1,1 @@
+from . import hr_egypt_contract
